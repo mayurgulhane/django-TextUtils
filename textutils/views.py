@@ -20,7 +20,7 @@ def analyze(request):
             if char not in punc:
                 analyzed = analyzed  +  char
 
-        params={ 'analyzed':analyzed }
+        params={'purpose': 'Remove Punctuations', 'analyzed':analyzed }
         text = analyzed
      
        
@@ -28,7 +28,7 @@ def analyze(request):
         analyzed=" "
         for char in text:
             analyzed=analyzed + char.upper()
-        params={ 'analyzed':analyzed }
+        params={ 'purpose': 'Changed to Uppercase', 'analyzed':analyzed }
         text = analyzed
         
 
@@ -37,7 +37,7 @@ def analyze(request):
         for char in text:
             if char != "\n" and char != "\r":
                 analyzed = analyzed + char
-        params={ 'analyzed':analyzed }
+        params={'purpose': 'Removed New Lines', 'analyzed':analyzed }
         text = analyzed
         
 
@@ -47,7 +47,7 @@ def analyze(request):
             print(text)
             if not(text[index] == " " and text[index + 1]== " "):
                 analyzed = analyzed + char
-        params={ 'analyzed':analyzed }
+        params={'purpose': 'Removed New Lines', 'analyzed':analyzed }
         text = analyzed
         
     
@@ -55,7 +55,7 @@ def analyze(request):
         analyzed=" "
         for char in text:
                 analyzed= len(text)
-        params={ 'analyzed':analyzed }
+        params={'purpose': 'Chatracter Count', 'analyzed':analyzed }
         
         
     if (removepunc != 'on' and fullCap !=  'on' and linermv !=  'on' and spacermv != 'on' and charCount !=  'on'):
